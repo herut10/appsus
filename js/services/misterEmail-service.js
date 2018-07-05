@@ -42,7 +42,7 @@ var emails = [{
     {
         subject: 'have you decided to embrace our lord and savior yaron biton?',
         body: 'when god created the world only he and yaron biton knew how it was coded.',
-        isRead: false,
+        isRead: true,
         sentAt: Date.now() - 34560000000,
         id: utilService.makeid()
     },

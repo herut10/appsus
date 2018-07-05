@@ -10,6 +10,10 @@ const routes = [{
     component: appsus
   },
   {
+    path: '/misterEmail/:id',
+    component: misterEmail
+  },
+  {
     path: '/misterEmail',
     component: misterEmail
   },

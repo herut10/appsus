@@ -4,7 +4,7 @@
 export default {
     props: ['email'],
     template: `
-    <section class="email-preview" :style="styleObj">
+    <section class="email-preview" :style="styleObject">
         {{email.subject}} {{timeRecieved}}
     </section>
     `,
@@ -19,13 +19,14 @@ export default {
             } else {
                 return dateStr.slice(1, 11)
             }
-        },
-        data() {
-            return {
-                isRead: this.email.isRead,
-                styleObj: {
-                    'font-weight': isRead ? '' : 900,
-                }
+        }
+    },
+    data() {
+
+        return {
+            isRead: this.email.isRead,
+            styleObject: {
+                'font-weight': this.email.isRead ? 400 : 900
             }
         }
     }
