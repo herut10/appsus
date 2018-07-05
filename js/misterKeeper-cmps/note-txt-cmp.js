@@ -6,12 +6,11 @@ export default {
     name: 'note-txt',
 
     template: `
-<section class="note-txt">
+<section class="note-txt" >
 <li>{{data.title}}</li>
 <li>{{data.txt}}</li>
 </section>
 `,
-
 
 
 }

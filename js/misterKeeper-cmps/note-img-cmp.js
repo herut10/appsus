@@ -7,9 +7,10 @@ export default {
     name: 'note-img',
 
     template: `
+<section class="note-img">
+<img :src="data.src" >
 
-<img :src="data.src" :alt="data.altSrc">
-
+</section>
 `,
 
 
