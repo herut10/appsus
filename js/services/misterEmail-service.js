@@ -1,6 +1,8 @@
 'use strict'
 
-
+export default{
+    query
+}
 
 
 function query() {
