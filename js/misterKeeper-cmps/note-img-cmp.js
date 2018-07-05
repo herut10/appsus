@@ -8,7 +8,7 @@ export default {
 
     template: `
 
-<img :src="data.src">
+<img :src="data.src" :alt="data.altSrc">
 
 `,
 
