@@ -5,6 +5,7 @@ export default {
     props: ['email'],
     template: `
     <section class="email-preview" :style="styleObject">
+    <router-link :to="'/misterEmail/'+email.id">misterEmail</router-link>
         {{email.subject}} {{timeRecieved}}
     </section>
     `,
@@ -19,15 +20,22 @@ export default {
             } else {
                 return dateStr.slice(1, 11)
             }
+        },
+        emailRead() {
+            return this.email.isRead;
         }
     },
     data() {
 
         return {
-            isRead: this.email.isRead,
             styleObject: {
                 'font-weight': this.email.isRead ? 400 : 900
             }
+        }
+    },
+    watch: {
+        emailRead() {
+            this.styleObject['font-weight'] = this.email.isRead ? 400 : 900
         }
     }
 }

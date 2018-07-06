@@ -2,15 +2,16 @@
 
 export default {
     name: 'btn-delete',
+    props: ['id'],
 
-template: `
+    template: `
 <section class="btn-delete">
-<button  @click.native="delete">X</button>
+<button  @click="emitDelete">X</button>
 </section>
 `,
     methods: {
-        delete(idx) {
-            this.$emit('delete', idx)
+        emitDelete() {
+            this.$emit('delete', this.id)
         },
     },
 

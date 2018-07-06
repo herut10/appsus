@@ -19,7 +19,6 @@ export default {
                 this.emails = emails
                 return this.$route.params.id
             }).then(id => {
-                debugger
                 this.updateUrl(id)
             })
 
@@ -40,16 +39,15 @@ export default {
                     this.selectedEmail = this.emails[0]
                     this.$router.push('misterEmail/' + this.selectedEmail.id)
                 }
+                
                 this.selectedEmail.isRead = true
             }
 
         }
     },
-    watch: {
-        // 'this.$route.params.id': function () {
-        //     debugger
-        //     updateUrl()
-        // }
+    beforeRouteUpdate(to, from, next) {
+        this.updateUrl(to.params.id)
+        next()
     },
 
     data() {
