@@ -2,7 +2,6 @@
 
 export default {
     name: 'btn-delete',
-    props: ['id'],
 
     template: `
 <section class="btn-delete">
@@ -11,7 +10,7 @@ export default {
 `,
     methods: {
         emitDelete() {
-            this.$emit('delete', this.id)
+            this.$emit('delete')
         },
     },
 

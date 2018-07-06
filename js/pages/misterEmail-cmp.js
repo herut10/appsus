@@ -3,27 +3,43 @@
 import emailService from '../services/misterEmail-service.js'
 import emailList from '../misterEmail-cmps/email-list-cmp.js'
 import emailDetails from '../misterEmail-cmps/email-details-cmp.js'
+import emailStatus from '../misterEmail-cmps/email-status-cmp.js'
 
 
 export default {
     template: `
-    <section v-if="emails" class="about">
+    <section v-if="emails" class="misterEmail">
+    <main>
         <h1>mister email</h1>
         <email-list :emails="emails"></email-list>
-        <email-details :email="selectedEmail"></email-details>
+        <email-details v-if="selectedEmail" @delete="removeEmail" :email="selectedEmail"></email-details>
+    </main>
+    <footer>
+    <email-status :emails="emails"></email-status>
+    </footer>
     </section>
+
     `,
     created() {
         emailService.query()
             .then(emails => {
                 this.emails = emails
                 return this.$route.params.id
-            }).then(id => {
+            })
+            .then(id => {
                 this.updateUrl(id)
             })
-
     },
     methods: {
+        removeEmail() {
+            var emailIdx = this.emails.findIndex(email => email === this.selectedEmail)
+            this.emails.splice(emailIdx, 1)
+            if (this.emails.length) {
+                this.updateUrl(this.emails[0].id)
+            } else {
+                this.selectedEmail = null
+            }
+        },
         updateUrl(id) {
             {
                 if (id) {
@@ -39,7 +55,7 @@ export default {
                     this.selectedEmail = this.emails[0]
                     this.$router.push('misterEmail/' + this.selectedEmail.id)
                 }
-                
+
                 this.selectedEmail.isRead = true
             }
 
@@ -58,7 +74,8 @@ export default {
     },
     components: {
         emailList,
-        emailDetails
+        emailDetails,
+        emailStatus
     }
 
 }

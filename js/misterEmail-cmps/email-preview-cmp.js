@@ -5,8 +5,7 @@ export default {
     props: ['email'],
     template: `
     <section class="email-preview" :style="styleObject">
-    <router-link :to="'/misterEmail/'+email.id">misterEmail</router-link>
-        {{email.subject}} {{timeRecieved}}
+    <router-link :to="'/misterEmail/'+email.id"> {{email.subject}} {{timeRecieved}}</router-link>
     </section>
     `,
     computed: {

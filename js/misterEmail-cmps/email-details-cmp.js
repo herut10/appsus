@@ -5,8 +5,8 @@ import btnDelete from '../general-cmps/btn-delete-cmp.js'
 export default {
     props: ['email'],
     template: `
-    <section v-if="email" class="email-details">
-        <btn-delete></btn-delete>
+    <section  v-if="email" class="email-details">
+        <btn-delete  @delete="removeEmail"></btn-delete>
         {{email.sentAt}}
         {{email.subject}}
         <pre>{{email.body}}</pre>
@@ -14,5 +14,10 @@ export default {
     `,
     components: {
         btnDelete,
+    },
+    methods: {
+        removeEmail() {
+            this.$emit('delete')
+        }
     }
 }
