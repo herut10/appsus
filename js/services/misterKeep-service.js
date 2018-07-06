@@ -22,8 +22,18 @@ function query() {
 
 function getNoteById(id) {
     let note = notes.find(note => note.id === id);
-    return Promise.resolve(note);
+    // return Promise.resolve(note);
+    return new Promise(function (resolve, reject) {
+        if (note) {
+            resolve(note);
+          }
+          else {
+            reject(Error("no ID"));
+          }
+    });
+
 }
+
 
 
 
@@ -36,7 +46,30 @@ function saveNote(note) {
         notes.push(note);
     }
     console.log('Sevice is saving the note', note);
+    console.log(notes)
     return Promise.resolve(note);
+
+}
+
+
+function saveNoteTxt(note) {
+    notes.push(note);
+    console.log('Sevice is saving the note', note);
+    return Promise.resolve(note);
+}
+
+
+
+function emptyTxtNote() {
+
+    return {
+        type: 'note-txt',
+        id: utilService.makeid(),
+        data: {
+            title: '',
+            txt: ''
+        },
+    }
 
 }
 
@@ -44,5 +77,8 @@ function saveNote(note) {
 export default {
     query,
     getNoteById,
-    saveNote
+    saveNote,
+    saveNoteTxt,
+    emptyTxtNote,
+   
 }

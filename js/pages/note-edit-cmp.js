@@ -12,24 +12,31 @@ export default {
 
 {{editedNote}}
     <h1>EDIT</h1>
-    <!-- v-if="editedNote.type==='note-txt'" -->
-<section class="note-txt" v-if="editedNote" >
+
+    <section class="note-txt" v-if="editedNote" >
+
     <div v-if="editedNote.type==='note-txt'" >
+
     <input type="text" v-model="editedNote.data.title"></input>
-<input  type="text" v-model="editedNote.data.txt"></input>
-<button @click="saveNote()">Save</button>
+    <input  type="text" v-model="editedNote.data.txt"></input>
+
+    <button @click="saveNote()">Save</button>
     </div>
-<div v-else-if="editedNote.type==='note-img'" >
+
+
+
+
+    <div v-else-if="editedNote.type==='note-img'" >
     
 {{editedNote.type}}
-<img :src="editedNote.data.src" >
-</div>
-<div v-else-if="editedNote.type==='note-list'" >
-<ul v-for="todo in editedNote.data.todos" >
-  <li >{{todo}}</li>
-</ul>
-</div>
-</section>
+    <img :src="editedNote.data.src" >
+    </div>
+    <div v-else-if="editedNote.type==='note-list'" >
+    <ul v-for="todo in editedNote.data.todos" >
+    <li >{{todo}}</li>
+    </ul>
+    </div>
+    </section>
            <!-- <button v-on:click="$emit('back')">close</button>
 
             <h3>Add Car</h3>
@@ -46,7 +53,8 @@ export default {
     `,
     data() {
         return {
-            editedNote: null,
+            editedNote: null
+            // editedNote: misterKeepService.emptyTxtNote(),
             // title: editedNote.data.title,
             // txt: editedNote.data.txt
 
@@ -61,7 +69,7 @@ export default {
         // }
     },
     created() {
-
+        debugger;
         console.log(this.$route.params.noteId)
         const { noteId } = this.$route.params;
         if (noteId) {

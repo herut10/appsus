@@ -9,10 +9,10 @@ import misterKeepService from '../services/misterKeep-service.js'
 export default {
     name: 'misterKeep',
     template: `
-    <section class="misterKeeper">
+    <section class="misterKeeper" v-if="editedNote">
         <h1>
             mister keeper
-
+    <input v-model="editedNote.data.txt" @input="saveNoteTxt(editedNote)" type="text" placeholder="Take a note..."/>
             <!-- <note-txt :data="{title: 'yaron'}"></note-txt>
            <component is="note-txt" :data="{title: 'yaron'}"></component> 
          @click.native="setEditNote(note)" -->
@@ -35,7 +35,10 @@ export default {
     data() {
         return {
             selectedNote: null,
-            notes: []
+            notes: [],
+            editedNote: misterKeepService.emptyTxtNote(),
+
+
         }
     },
     components: {
@@ -48,11 +51,26 @@ export default {
     methods: {
 
         selected(note) {
-            this.$router.push(`misterKeeper/edit/${note.id}`);
+                this.$router.push(`misterKeeper/edit/${note.id}`);
+            },
 
+            saveNoteTxt(note){
+                misterKeepService.saveNoteTxt(note)
+                .then(note => {
+                    this.selected(note);
+                })
         }
 
-    },
+        },
+
+
+
+
+        // focus(){
+        //     this.$router.push(misterKeeper/edit)
+        // }
+
+   
 
 
 }
