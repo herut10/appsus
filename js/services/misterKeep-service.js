@@ -23,14 +23,7 @@ function query() {
 function getNoteById(id) {
     let note = notes.find(note => note.id === id);
     // return Promise.resolve(note);
-    return new Promise(function (resolve, reject) {
-        if (note) {
-            resolve(note);
-          }
-          else {
-            reject(Error("no ID"));
-          }
-    });
+    return  Promise.resolve(note) 
 
 }
 
