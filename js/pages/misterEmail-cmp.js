@@ -71,10 +71,10 @@ export default {
     methods: {
         addNewMail(email) {
             this.emails.push(email)
-            debugger
+            this.emailReply = null
+            this.composing = false
         },
         onAdd(email) {
-            debugger
             this.emailReply = email
             this.composing = true
         },

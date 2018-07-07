@@ -22,7 +22,6 @@ export default {
     </section>
     `,
     data() {
-        debugger
         return {
             subject: this.email ? 'Re: ' + this.email.subject : '',
             body: ''

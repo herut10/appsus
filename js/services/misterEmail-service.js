@@ -27,6 +27,7 @@ function compareBySubject(a, b) {
 }
 
 function timeRecieved(sentAt) {
+
     var dateStr = JSON.stringify(new Date(sentAt))
     var timeDiff = Date.now() - sentAt
     if (timeDiff < 86400000) {
