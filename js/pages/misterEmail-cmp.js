@@ -4,26 +4,64 @@ import emailService from '../services/misterEmail-service.js'
 import emailList from '../misterEmail-cmps/email-list-cmp.js'
 import emailDetails from '../misterEmail-cmps/email-details-cmp.js'
 import emailStatus from '../misterEmail-cmps/email-status-cmp.js'
+import emailFilter from '../misterEmail-cmps/email-filter-cmp.js'
+import emailSort from '../misterEmail-cmps/email-sort-cmp.js'
+import emailCompose from '../misterEmail-cmps/email-compose-cmp.js'
+
 
 
 export default {
     template: `
     <section v-if="emails" class="misterEmail">
-    <main>
-        <h1>mister email</h1>
-        <email-list :emails="emails"></email-list>
-        <email-details v-if="selectedEmail" @delete="removeEmail" :email="selectedEmail"></email-details>
-    </main>
-    <footer>
-    <email-status :emails="emails"></email-status>
-    </footer>
+        <main>
+            <h1>mister email</h1>
+            <email-compose @add="addNewMail" v-if="composing" :email="emailReply"></email-compose>
+            <template v-else>
+                <email-sort @dosort="onDoFilter"></email-sort>
+                <email-filter @dofilter="onDoFilter"></email-filter>
+                <email-list @add="onAdd(null)" :emails="emailsForDisplay"></email-list>
+                <email-details @add="onAdd(selectedEmail)" v-if="selectedEmail" @delete="removeEmail" :email="selectedEmail"></email-details>
+            </template>
+        </main>
+        <footer>
+        <email-status :emails="emails"></email-status>
+        </footer>
     </section>
 
     `,
+    computed: {
+        emailsForDisplay() {
+            var dispEmails;
+            if (!this.filter) {
+                dispEmails = this.emails.slice()
+            } else {
+                dispEmails = this.emails.filter(email => {
+                    return email.subject.includes(this.filter.txt) &&
+                        (this.filter.filterBy === 'all' ||
+                            ((this.filter.filterBy === 'read') === email.isRead))
+                })
+            }
+
+            if (!this.sort) {
+                return dispEmails
+            }
+            if (this.sort.sortBy === 'date') {
+                dispEmails.sort(emailService.compareByDate)
+            } else if (this.sort.sortBy === 'subject') {
+                dispEmails.sort(emailService.compareBySubject)
+            }
+            if (this.sort.reversed) {
+                dispEmails = dispEmails.reverse()
+            }
+            return dispEmails
+
+        }
+    },
     created() {
         emailService.query()
             .then(emails => {
                 this.emails = emails
+                emailService.saveEmails(emails)
                 return this.$route.params.id
             })
             .then(id => {
@@ -31,6 +69,21 @@ export default {
             })
     },
     methods: {
+        addNewMail(email) {
+            this.emails.push(email)
+            this.emailReply = null
+            this.composing = false
+        },
+        onAdd(email) {
+            this.emailReply = email
+            this.composing = true
+        },
+        onDoFilter(filter) {
+            this.filter = filter
+        },
+        onDoFilter(sort) {
+            this.sort = sort
+        },
         removeEmail() {
             var emailIdx = this.emails.findIndex(email => email === this.selectedEmail)
             this.emails.splice(emailIdx, 1)
@@ -39,25 +92,25 @@ export default {
             } else {
                 this.selectedEmail = null
             }
+
         },
         updateUrl(id) {
-            {
-                if (id) {
-                    var foundEmail = this.emails.find(email => email.id === id)
-                    if (foundEmail) {
-                        this.selectedEmail = foundEmail
-                    } else {
-                        this.selectedEmail = this.emails[0]
-
-                        this.$router.push(this.selectedEmail.id)
-                    }
+            if (id) {
+                var foundEmail = this.emails.find(email => email.id === id)
+                if (foundEmail) {
+                    this.selectedEmail = foundEmail
                 } else {
                     this.selectedEmail = this.emails[0]
-                    this.$router.push('misterEmail/' + this.selectedEmail.id)
-                }
 
-                this.selectedEmail.isRead = true
+                    this.$router.push(this.selectedEmail.id)
+                }
+            } else {
+                this.selectedEmail = this.emails[0]
+                this.$router.push('misterEmail/' + this.selectedEmail.id)
             }
+            this.selectedEmail.isRead = true
+
+
 
         }
     },
@@ -65,17 +118,32 @@ export default {
         this.updateUrl(to.params.id)
         next()
     },
+    watch: {
+        emails: {
+            handler: function (newemails) { // watch it
+                emailService.saveEmails(newemails)
+            },
+            deep: true,
+        }
+    },
 
     data() {
         return {
             emails: null,
             selectedEmail: null,
+            filter: null,
+            sort: null,
+            composing: false,
+            emailReply: null
         }
     },
     components: {
         emailList,
         emailDetails,
-        emailStatus
+        emailStatus,
+        emailFilter,
+        emailSort,
+        emailCompose
     }
 
 }

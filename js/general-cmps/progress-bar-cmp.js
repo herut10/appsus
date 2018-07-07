@@ -5,24 +5,69 @@ export default {
     props: ['total', 'progress'],
 
     template: `
-<section class="progress-bar flex justify-center align-center" >
-
+<section class="progress-bar" >
+<ul class="flex justify-center align-center">
+    <li v-for="prog in progresion" :style="prog.styleObj"></li>
+</ul>
+    <h1 style="position:relative; width: 0; top: -53px; color: white; left: 48%;">{{getPercentage}}%</h1>
 </section>
 `,
     data() {
-        debugger
+
         var progresion = []
         for (let i = 0; i < this.total; i++) {
             progresion.push({
-                progressed: i < this.progress
+                styleObj: {
+                    'background-color': i < this.progress ? 'blue' : 'black',
+                    width: `${100/this.total}%`,
+                    height: `50px`
+                }
             })
         }
         return {
-            progresion
+            progresion: progresion,
         }
     },
-    methods: {
-
+    computed: {
+        getPercentage() {
+            return new Number(100 * this.progress / this.total).toFixed(2).valueOf()
+        },
+        getProgress() {
+            return this.progress
+        },
+        getTotal() {
+            return this.total
+        }
     },
+    watch: {
+
+        getProgress() {
+            var progresion = []
+            for (let i = 0; i < this.total; i++) {
+                progresion.push({
+                    styleObj: {
+                        'background-color': i < this.progress ? 'blue' : 'black',
+                        width: `${100/this.total}%`,
+                        height: `50px`
+                    }
+                })
+            }
+            this.progresion = progresion
+        },
+        getTotal() {
+            var progresion = []
+            for (let i = 0; i < this.total; i++) {
+                progresion.push({
+                    styleObj: {
+                        'background-color': i < this.progress ? 'blue' : 'black',
+                        width: `${100/this.total}%`,
+                        height: `50px`
+                    }
+                })
+            }
+            this.progresion = progresion
+        }
+    }
+
 
 }

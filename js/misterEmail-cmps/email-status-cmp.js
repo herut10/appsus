@@ -5,25 +5,31 @@ export default {
     props: ['emails'],
     template: `
     <section  class="email-status">
-    <progress-bar :total="total" :progress="progress"></progress-bar>
+    <progress-bar :total="getTotal" :progress="getProgress"></progress-bar>
 
     </section>
     `,
     data() {
-        return {
-            total: this.emails.length,
-            progress: 0,
-        }
+        return {}
     },
     components: {
         progressBar
     },
     created() {
-        this.updateProgress()
+        // this.progress = this.getProgress()
     },
-    methods: {
-        updateProgress() {
-            this.progress = this.emails.reduce((acc, email) => {
+    watch: {
+        // getProgress() {
+        //     debugger
+        //     this.progress = this.getProgress()
+        // }
+    },
+    computed: {
+        getTotal() {
+            return this.emails.length
+        },
+        getProgress() {
+            return this.emails.reduce((acc, email) => {
                 if (email.isRead) {
                     return acc + 1
                 } else {

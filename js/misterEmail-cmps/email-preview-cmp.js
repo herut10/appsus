@@ -1,32 +1,24 @@
 'use strict'
 
+import emailService from '../services/misterEmail-service.js'
+
 
 export default {
-    props: ['email'],
+    props: ['email', 'idx'],
     template: `
     <section class="email-preview" :style="styleObject">
-    <router-link :to="'/misterEmail/'+email.id"> {{email.subject}} {{timeRecieved}}</router-link>
+        <input type="checkbox" :id="email.id"  @change="$emit('selected',email)"/>
+        <router-link :to="'/misterEmail/'+email.id"> {{email.subject}} {{timeRecieved}}</router-link>
     </section>
     `,
     computed: {
-        timeRecieved() {
-            var timeDiff = Date.now() - this.email.sentAt
-            var dateStr = JSON.stringify(new Date(this.email.sentAt))
-            if (timeDiff < 86400000) {
-                return dateStr.slice(12, 17)
-            } else if (timeDiff < 31536000000) {
-                return dateStr.slice(6, 11)
-            } else {
-                return dateStr.slice(1, 11)
-            }
-        },
         emailRead() {
             return this.email.isRead;
         }
     },
     data() {
-
         return {
+            timeRecieved: emailService.timeRecieved(this.email.sentAt),
             styleObject: {
                 'font-weight': this.email.isRead ? 400 : 900
             }
