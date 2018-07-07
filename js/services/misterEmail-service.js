@@ -2,9 +2,40 @@
 
 
 import utilService from '../services/util.service.js'
+import storageService from '../services/storage.service.js'
+const EMAILS_KEY = 'EMAILS'
 
 export default {
-    query
+    query,
+    timeRecieved,
+    compareByDate,
+    compareBySubject,
+    saveEmails
+}
+
+
+function saveEmails(emails) {
+    storageService.store(EMAILS_KEY, emails)
+}
+
+function compareByDate(a, b) {
+    return a.sentAt - b.sentAt
+}
+
+function compareBySubject(a, b) {
+    return a.subject < b.subject
+}
+
+function timeRecieved(sentAt) {
+    var dateStr = JSON.stringify(new Date(sentAt))
+    var timeDiff = Date.now() - sentAt
+    if (timeDiff < 86400000) {
+        return dateStr.slice(12, 17)
+    } else if (timeDiff < 31536000000) {
+        return dateStr.slice(6, 11)
+    } else {
+        return dateStr.slice(1, 11)
+    }
 }
 
 
