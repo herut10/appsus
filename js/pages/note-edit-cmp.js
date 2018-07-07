@@ -5,7 +5,7 @@ import misterKeepService from '../services/misterKeep-service.js'
 
 export default {
 
-   
+
 
     name: 'note-list-edit',
 
@@ -17,9 +17,11 @@ export default {
     <h1>EDIT</h1>
 
     <section class="note-txt" v-if="editedNote"  >
+
     <div class="editArea" ref="editArea" v-if="editedNote.type==='note-txt'" >
     <input type="text" v-model="editedNote.data.title"></input>
     <input  type="text" v-model="editedNote.data.txt" autofocus></input>
+    <input type="color" v-model="editedNote.color"  /> 
     <button @click="returnToList()">Return</button>
     </div>
 
@@ -28,10 +30,10 @@ export default {
     <div v-else-if="editedNote.type==='note-img'" >
     {{editedNote.type}}
 
+<input type="text" v-model="editedNote.data.title"></input>
     <input type="file" @change="imageUpdate">
-
-
     <img ref="img" :src="editedNote.data.src" >
+    <input type="color" v-model="editedNote.color"  /> 
     <button @click="returnToList()">Return</button>
 
     </div>
@@ -49,10 +51,10 @@ export default {
     data() {
         return {
             editedNote: null,
-            editedTodo: null,
-            
+            // editedTodo: null,
 
-            
+
+
         }
 
     },

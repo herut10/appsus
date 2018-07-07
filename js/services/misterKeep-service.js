@@ -4,10 +4,10 @@ import utilService from './util.service.js'
 
 var notes = [
 
-    { type: 'note-txt', id: utilService.makeid(), color: 'white', data: { title: 'tally', txt: 'lalalalala' } },
-    { type: 'note-img', id: utilService.makeid(), color: 'white' , data: { src: 'img/1.jpg' } },
-    { type: 'note-list', id: utilService.makeid(), color: 'white', data: { todoId: utilService.makeid(),txt:['go to india', 'to cook carrots'], isDone: false }},
-    { type: 'note-list', id: utilService.makeid(), color: 'white' ,data: { todoId: utilService.makeid(),txt:['go to burgas', 'to cook patatos'], isDone: false }},
+    { type: 'note-txt', id: utilService.makeid(), color: '#FFFFFF', data: { title: 'tally', txt: 'lalalalala' } },
+    { type: 'note-img', id: utilService.makeid(), color: '#FFFFFF' , data: { title:'image', src: 'img/1.jpg' } },
+    { type: 'note-list', id: utilService.makeid(), color: '#FFFFFF', data: { todoId: utilService.makeid(),title:['go to india', 'to cook carrots'], isDone: false }},
+    { type: 'note-list', id: utilService.makeid(), color: '#FFFFFF' ,data: { todoId: utilService.makeid(),title:['go to burgas', 'to cook patatos'], isDone: false }},
 
 
 ]
