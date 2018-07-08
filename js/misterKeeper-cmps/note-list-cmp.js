@@ -11,11 +11,12 @@ export default {
 
 <section class="note-list clean-list">
 <img class="tape" src="/img/tape.png">
-  {{data.title}}
+  <div class="list-title">{{data.title}}</div>
   <!-- {{data.todos}} -->
   <ul>
   <li v-for="todo in data.todos">
   {{todo.txt}}
+  <hr>
   </li>
 </ul>
 <!-- <input v-model="newTodo" 

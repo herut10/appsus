@@ -11,8 +11,7 @@ export default {
     
        <section class="note-list-edit"  >
 
-{{editedNote}}
-    <h1>EDIT</h1>
+    <h1>Edit your keep</h1>
     <!-- background: editedNote.color -->
     <!-- :style="{background: editedNote.color}" -->
     <section :style="{background: editedNote.color}" :class="{noteTxt: isTxt}" v-if="editedNote"  >
@@ -31,13 +30,14 @@ export default {
     <input type="file" @change="imageUpdate">
     <img ref="img" :src="editedNote.data.src" >
     <input type="color" v-model="editedNote.color"   /> 
-    <button @click="returnToList()">Return</button>
+    <back-btn class="btn-back" @back="returnToList()"></back-btn>
 
     </div>
     <div v-else-if="editedNote.type==='note-list'" >
     <ul v-for="todo in editedNote.data.todos"  >
     <li  @click="editList($event)">{{todo}}</li>
     </ul>
+    <back-btn class="btn-back" @back="returnToList()"></back-btn>
     </div>
   
     </section>

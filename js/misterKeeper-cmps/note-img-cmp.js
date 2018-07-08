@@ -9,6 +9,7 @@ export default {
 
     template: `
 <section class="note-img clean-list" >
+    {{data.title}}
 <img class="tape" src="/img/tape.png">
 <div>{{data.id}}
 <img :src="data.src" >
