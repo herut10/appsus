@@ -4,13 +4,19 @@ import progressBar from '../general-cmps/progress-bar-cmp.js'
 export default {
     props: ['emails'],
     template: `
-    <section  class="email-status">
+    <section  class="email-status" :style="styleObj">
     <progress-bar :total="getTotal" :progress="getProgress"></progress-bar>
 
     </section>
     `,
     data() {
-        return {}
+        return {
+            styleObj: {
+                position: 'absolute',
+                bottom: '0',
+                width: '98%',
+            }
+        }
     },
     components: {
         progressBar

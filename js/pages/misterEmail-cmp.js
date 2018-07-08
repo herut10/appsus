@@ -16,12 +16,14 @@ export default {
         <main>
             <h1>mister email</h1>
             <email-compose @add="addNewMail" v-if="composing" :email="emailReply"></email-compose>
-            <template v-else>
-                <email-sort @dosort="onDoFilter"></email-sort>
-                <email-filter @dofilter="onDoFilter"></email-filter>
-                <email-list @add="onAdd(null)" :emails="emailsForDisplay"></email-list>
-                <email-details @add="onAdd(selectedEmail)" v-if="selectedEmail" @delete="removeEmail" :email="selectedEmail"></email-details>
-            </template>
+            <div class="flex " v-else>
+                <div>
+                    <email-sort @dosort="onDoSort"></email-sort>
+                    <email-filter @dofilter="onDoFilter"></email-filter>
+                    <email-list @add="onAdd(null)" :emails="emailsForDisplay"></email-list>
+                </div>
+                <email-details @back="unselect" @add="onAdd(selectedEmail)" v-if="selectedEmail" @delete="removeEmail" :email="selectedEmail"></email-details>
+            </div>
         </main>
         <footer>
         <email-status :emails="emails"></email-status>
@@ -41,7 +43,6 @@ export default {
                             ((this.filter.filterBy === 'read') === email.isRead))
                 })
             }
-
             if (!this.sort) {
                 return dispEmails
             }
@@ -69,6 +70,12 @@ export default {
             })
     },
     methods: {
+        unselect() {
+            this.selectedEmail = null
+            debugger
+            
+            this.$router.push('misterEmail')
+        },
         addNewMail(email) {
             this.emails.push(email)
             this.emailReply = null
@@ -81,7 +88,7 @@ export default {
         onDoFilter(filter) {
             this.filter = filter
         },
-        onDoFilter(sort) {
+        onDoSort(sort) {
             this.sort = sort
         },
         removeEmail() {
@@ -143,7 +150,7 @@ export default {
         emailStatus,
         emailFilter,
         emailSort,
-        emailCompose
+        emailCompose,
     }
 
 }

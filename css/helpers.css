@@ -17,6 +17,18 @@
     display: flex;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.right {
+    float: right;
+}
+
 .inline-flex {
     display: inline-flex;
 }

@@ -84,5 +84,26 @@ var emails = [{
         isRead: false,
         sentAt: Date.now() - 5961600000,
         id: utilService.makeid()
+    },
+    {
+        subject: 'social justice is evil justice',
+        body: 'stop and think.',
+        isRead: false,
+        sentAt: Date.now() - 5961600000,
+        id: utilService.makeid()
+    },
+    {
+        subject: 'elad frizi lives',
+        body: 'and he lives well.',
+        isRead: false,
+        sentAt: Date.now() - 5961600000,
+        id: utilService.makeid()
+    },
+    {
+        subject: 'are you in the middle of a coding course?',
+        body: 'boy do i have the perfect antidepressent for you.',
+        isRead: false,
+        sentAt: Date.now() - 5961600000,
+        id: utilService.makeid()
     }
 ]
