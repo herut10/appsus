@@ -5,7 +5,7 @@ export default {
     props: ['total', 'progress'],
 
     template: `
-<section class="progress-bar" >
+<section class="progress-bar" style="height: 50px">
 <ul class="flex justify-center align-center">
     <li v-for="prog in progresion" :style="prog.styleObj"></li>
 </ul>

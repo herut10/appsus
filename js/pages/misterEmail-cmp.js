@@ -12,23 +12,45 @@ import emailCompose from '../misterEmail-cmps/email-compose-cmp.js'
 
 export default {
     template: `
+<transition
+        name="custom-classes-transition"
+        enter-active-class="animated bounceInLeft"
+        leave-active-class="animated bounceOutRight">
+
     <section v-if="emails" class="misterEmail">
-        <main>
-            <h1>mister email</h1>
+
+        <main style="height: 76vh;">
+
+                        <transition
+        name="custom-classes-transition"
+        enter-active-class="animated bounceInLeft"
+        leave-active-class="animated bounceOutRight">
+            
             <email-compose @add="addNewMail" v-if="composing" :email="emailReply"></email-compose>
+            
             <div class="flex " v-else>
-                <div>
+                 <div v-if="selectedEmail">
+                    <email-details @back="unselect" @add="onAdd(selectedEmail)"  @delete="removeEmail" :email="selectedEmail"></email-details>
+                </div>
+                <div v-else >
                     <email-sort @dosort="onDoSort"></email-sort>
                     <email-filter @dofilter="onDoFilter"></email-filter>
                     <email-list @add="onAdd(null)" :emails="emailsForDisplay"></email-list>
                 </div>
-                <email-details @back="unselect" @add="onAdd(selectedEmail)" v-if="selectedEmail" @delete="removeEmail" :email="selectedEmail"></email-details>
             </div>
+</transition>
+
         </main>
         <footer>
         <email-status :emails="emails"></email-status>
         </footer>
+
     </section>
+
+
+
+
+</transition>
 
     `,
     computed: {
@@ -72,9 +94,8 @@ export default {
     methods: {
         unselect() {
             this.selectedEmail = null
-            debugger
-            
-            this.$router.push('misterEmail')
+
+            this.$router.push('/misterEmail')
         },
         addNewMail(email) {
             this.emails.push(email)
