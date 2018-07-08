@@ -5,7 +5,7 @@ export default {
 
     template: `
 <section class="btn-delete">
-<button  @click="emitDelete">X</button>
+<button  @click.stop="emitDelete">X</button>
 </section>
 `,
     methods: {

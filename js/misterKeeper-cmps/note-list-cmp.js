@@ -8,54 +8,59 @@ export default {
   name: 'note-list',
 
   template: `
-<section class="note-list"  >
-<input v-model="newTodo" 
-placeholder="What do you need to do?" >
-<button @click="addTodo">Add todo</button>
 
-<ul class="list-item" v-if="todo">
+<section class="note-list">
+
+  {{data.title}}
+  <!-- {{data.todos}} -->
+  <ul>
+  <li v-for="todo in data.todos">
+  {{todo.txt}}
+  </li>
+</ul>
+<!-- <input v-model="newTodo" 
+placeholder="What do you need to do?" >
+<button @click="addTodo">Add todo</button> -->
+
+<!-- <ul class="list-item" v-if="todo"> -->
 <!-- :class="{done: isChecked(task)}" -->
 <!-- class="checkbox" @click="check" -->
 <!-- v-if="todo === editingTask" v-auto-focus class="text-input" @keyup.enter="endEditing(todo)" @blur="endEditing(todo)" -->
-<li v-for="todo in todos.txt" >
+<!-- <li v-for="todo in todos.txt" > -->
 
-  <input type="checkbox" v-model="todo.isDone">
+  <!-- <input type="checkbox" v-model="todo.isDone">
   
-  <input type="text" v-model="todo.txt">
+  <input type="text" v-model="todo.txt"> -->
 
-{{todo.txt}}
-{{data}}
+<!-- {{todo.txt}}
+{{data}} -->
   <!-- <label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)">{{ task.text }}</label> -->
   
   <!-- <button class="delete" @click="removeTask(task)">X</button> -->
 
-</li>
-
-</ul>
-
-
 </section>
 `,
   data() {
-    return {
-     
-      newTodo: "",
-      todos: this.data,
-      todo: getTodosObj()
+    return {}
+    // return {
 
-    }
+    //   newTodo: "",
+    //   todos: this.data,
+    //   todo: getTodosObj()
+
+    // }
 
   },
   created() {
-console.log(this.data.txt)
+    console.log('tatata')
 
   },
 
   methods: {
-    addTodo(){
-      console.log('todoadded')
-      misterKeepService.notes
-    },
+    // addTodo(){
+    //   console.log('todoadded')
+    //   misterKeepService.notes
+    // },
     // getTodosObj(){
     // debugger;
     //   var obj = this.data.txt.reduce(function(acc, cur, i) {
@@ -64,7 +69,7 @@ console.log(this.data.txt)
     //   }, {});
 
     // }
-   
+
 
   },
 

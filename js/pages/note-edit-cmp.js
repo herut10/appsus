@@ -5,8 +5,6 @@ import misterKeepService from '../services/misterKeep-service.js'
 
 export default {
 
-
-
     name: 'note-list-edit',
 
     template: `
@@ -33,7 +31,7 @@ export default {
 <input type="text" v-model="editedNote.data.title"></input>
     <input type="file" @change="imageUpdate">
     <img ref="img" :src="editedNote.data.src" >
-    <input type="color" v-model="editedNote.color"  /> 
+    <input type="color" v-model="editedNote.color"   /> 
     <button @click="returnToList()">Return</button>
 
     </div>
@@ -51,15 +49,12 @@ export default {
     data() {
         return {
             editedNote: null,
-            // editedTodo: null,
-
-
-
+            // editedTodo: null,       
         }
 
     },
     created() {
-
+        // debugger;
         console.log(this.$route.params.noteId)
         const { noteId } = this.$route.params;
         if (noteId) {
@@ -77,6 +72,7 @@ export default {
             this.$router.push('/misterKeeper');
         },
         imageUpdate(event) {
+            // debugger
             this.$refs.img.src = `img/${event.target.files[0].name}`
             this.editedNote.data.src = `img/${event.target.files[0].name}`;
         },

@@ -1,33 +1,33 @@
-// 'use strict'
+'use strict'
 
-// // import  './note-list-edit-cmp.js'
+// import  './note-list-edit-cmp.js'
 
-// export default {
-//     props: ['data'],
-//     name: 'note-list',
+export default {
+    props: ['newTodoLine'],
+    name: 'note-list',
 
-//     template: `
-// <section class="note-list">
+    template: `
+<section class="note-list">
 
-//  <input type="text" placeholder="What do you need to do?" >
-
-
+ <!-- <input type="text" placeholder="What do you need to do?" > -->
 
 
 
-// </section>
-// `,
-// data(){
-//   return{
-//     text: ''
-//   }
-// },
 
 
-// methods:{
+</section>
+`,
+data(){
+  return{
+    text: ''
+  }
+},
 
 
-// },
+methods:{
 
 
-// }
+},
+
+
+}

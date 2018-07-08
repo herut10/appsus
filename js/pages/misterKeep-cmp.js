@@ -20,7 +20,7 @@ export default {
    </section>
    
 
-<misterKeep-list :notes="notes" ></misterKeep-list>
+<misterKeep-list @delete="removeNote" :notes="notesToShow" ></misterKeep-list>
            
         </h1>
     </section>
@@ -28,7 +28,7 @@ export default {
     created() {
         misterKeepService.query()
             .then(notes => {
-                this.notes = notes;
+                this.notes = notes
             })
     },
     data() {
@@ -44,18 +44,22 @@ export default {
 
     },
     components: {
-
         misterKeepList
 
     },
-
     methods: {
+        removeNote(id) {
+    
+            var noteIdx = this.notes.findIndex(note => note.id === id)
+            this.notes.splice(noteIdx, 1)
+        }
+    },
+
+    computed: {
         notesToShow() {
-            debugger;
-            let notesToShow = this.notes;
-   
-            notesToShow = notesToShow.filter(note => {
-                return note.data.txt.includes(this.searchValue);
+
+            return this.notes.filter(note => {
+                return note.data.title.includes(this.searchValue);
             });
         }
     },
