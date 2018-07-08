@@ -4,6 +4,7 @@
 import noteTxt from '../misterKeeper-cmps/note-txt-cmp.js'
 import noteImg from '../misterKeeper-cmps/note-img-cmp.js'
 import noteList from '../misterKeeper-cmps/note-list-cmp.js'
+import addBtn from '../general-cmps/add-button-cmp.js'
 
 import misterKeepService from '../services/misterKeep-service.js'
 // import noteListEdit from '../misterKeeper-cmps/note-list-edit-cmp.js'
@@ -24,8 +25,8 @@ export default {
                     <note-list :data="notes[1].data">
                     </note-list>
          </div> -->
-         <button @click="selectImg">Add image</button>
-         <button @click="selectList">Add list</button>
+         <add-btn class="red" @add="selectImg"></add-btn>
+         <!-- <button @click="selectList">Add list</button> -->
            <component 
                  v-for="note in notes" :key="note.id" @click.native="selected(note)"
                  :is="note.type"
@@ -57,7 +58,8 @@ export default {
     components: {
         noteTxt,
         noteImg,
-        noteList
+        noteList,
+        addBtn
 
 
     },

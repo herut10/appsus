@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Vue</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+    <title>Apsus</title>
 </head>
 
 
 <body>
     <div id="app">
         <header>
-            <router-link to="/">Home</router-link> |
+                <div class="hamburger" onclick="changeIcon(this);toggleMenu();">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+            <!-- <router-link to="/">Home</router-link> |
             <router-link to="/misterEmail">misterEmail</router-link>|
-            <router-link to="/misterKeeper">misterKeeper</router-link>
+            <router-link to="/misterKeeper">misterKeeper</router-link> -->
         </header>
         <router-view></router-view>
     </div>

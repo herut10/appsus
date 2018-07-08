@@ -5,7 +5,7 @@ export default {
 
     template: `
 <section class="btn-add">
-<button  @click="emitAdd">+</button>
+<button class="btn-add far fa-plus-square fa-1x" @click="emitAdd"></button>
 </section>
 `,
     methods: {

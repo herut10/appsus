@@ -2,8 +2,22 @@
 
 
 
+.btn-add{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 
+.btn-delete{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 
-
+.btn-back{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 
 

@@ -1,6 +1,6 @@
 import misterKeepService from '../services/misterKeep-service.js'
 
-
+import backBtn from '../general-cmps/back-button-cmp.js'
 
 
 export default {
@@ -20,10 +20,8 @@ export default {
     <input type="text" v-model="editedNote.data.title"></input>
     <input  type="text" v-model="editedNote.data.txt" autofocus></input>
     <input type="color" v-model="editedNote.color"  /> 
-    <button @click="returnToList()">Return</button>
+    <back-btn class="btn-back" @back="returnToList()"></back-btn>
     </div>
-
-
 
     <div v-else-if="editedNote.type==='note-img'" >
     {{editedNote.type}}
@@ -85,8 +83,9 @@ export default {
 
 
     },
-
-
+    components:{
+        backBtn
+    }
 
 
 

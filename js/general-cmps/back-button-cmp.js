@@ -1,11 +1,12 @@
 'use strict'
 
+
 export default {
     name: 'btn-back',
 
     template: `
-<section class="btn-back">
-<button  @click="emitback"><-</button>
+<section >
+<button class="btn-back fas fa-arrow-left fa-1x" @click="emitback"></button>
 </section>
 `,
     methods: {
