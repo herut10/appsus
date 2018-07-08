@@ -13,17 +13,18 @@ export default {
         name="custom-classes-transition"
         enter-active-class="animated bounceInLeft"
         leave-active-class="animated bounceOutRight">
-        
-    <section class="misterKeeper" v-if="editedNote">
-    <div class="misterKeeperLogo">
-        <img src="/img/mister.png" alt="">
-        mister keeper
-    </div>
+
+    <section class="misterKeeper " v-if="editedNote">
+   
+    <section class="search" v-if="notes">
+    <input v-model="searchValue" type="search" placeholder="Search for a note" /> 
+    </section>
+   
     <input v-model="editedNote.data.txt" @input="saveNoteTxt(editedNote)" type="text" placeholder="Take a note..."/>
 
            <component :is="note.type"
                  :data="note.data"
-                 v-for="note in notes" :key="note.id" @click.native="selected(note)" >
+                 v-for="note in notesToShow" :key="note.id" @click.native="selected(note)" >
             </component>
            
     </section>
@@ -40,6 +41,7 @@ export default {
             selectedNote: null,
             notes: [],
             editedNote: misterKeepService.emptyTxtNote(),
+            searchValue : ''
 
 
         }
@@ -47,8 +49,8 @@ export default {
     components: {
         noteTxt,
         noteImg,
-        noteList,
-        // noteListEdit
+        noteList
+     
 
     },
     methods: {
@@ -58,21 +60,24 @@ export default {
         },
 
         saveNoteTxt(note) {
-            misterKeepService.saveNoteTxt(note)
+            misterKeepService.saveNote(note)
                 .then(note => {
                     this.selected(note);
                 })
-        }
+        },
 
+    },
+    computed: {
+        notesToShow() {
+            return this.notes.filter(note => {
+                return note.data.title.includes(this.searchValue);
+            });
+        }
     },
 
 
 
-
-    // focus(){
-    //     this.$router.push(misterKeeper/edit)
-    // }
-
+ 
 
 
 

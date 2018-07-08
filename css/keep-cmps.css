@@ -3,16 +3,74 @@
 
 
 .misterKeeper{
-
+    margin-left: 20px;
     font-family: lato;
 }
 
 .misterKeeperLogo{
-
+    width: 100%;
 }
 
 .misterKeeperLogo img{
-    height: 100px;
-    width: 100px;
+    height: 80px;
+   width: 80px;
 
 }
+
+.misterKeeperLogo li{
+color: #FFBB12;
+font-family: lato;
+text-transform: uppercase;
+letter-spacing: -1px;
+align-self: center;
+font-weight: 600;
+font-size: 20px;
+
+}
+
+
+
+.search{
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}   
+ input{
+    width: 70%;
+} 
+
+/* .txt-section{
+    width: 100%;
+}
+
+.txt-input{
+    width: 70%;
+    margin-top: 20px;
+} */
+
+
+.note-txt{
+    border: 1px solid black;
+    width:200px ;
+    height: 200px;
+}
+
+.note-img{
+    border: 1px solid black;
+    width:100% ;
+    /* height: 200px; */
+}
+
+.note-img img{
+
+    width: 100%;
+  
+}
+
+.note-list{
+    border: 1px solid black;
+    width:200px ;
+    height: 200px;
+}
+
