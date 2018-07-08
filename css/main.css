@@ -7,6 +7,7 @@
 @import './general-cmps.css';
 @import './keep-cmps.css';
 
+
 *{
     box-sizing: border-box;
 }
@@ -30,6 +31,10 @@ body{
 
 .gothic {
     font-family: 'Gothic';
+}
+
+a {
+    text-decoration: unset;
 }
 
 .container {

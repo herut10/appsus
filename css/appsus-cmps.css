@@ -1,1 +1,13 @@
 /* start */
+
+.logo {
+    font-family: productsans;
+    font-size: 70px;
+    text-transform: capitalize;
+    margin: 50px 0px 50px 0px;
+}
+
+.apps-container {
+    width: 90%;
+    justify-content: space-evenly;
+}
