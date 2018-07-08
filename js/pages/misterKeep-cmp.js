@@ -29,7 +29,10 @@ export default {
             leave-active-class="animated bounceOutRight">
                     <component :is="note.type"
                             :data="note.data"
-                            v-for="note in notesToShow" :key="note.id" @click.native="selected(note)"
+                            v-for="note in notesToShow" 
+                            :key="note.id"
+                            @click.native="selected(note)"
+                            @delete="removeNote(note.id)"
                             :style="{background: note.color}" >
                         </component>
             </transition-group>
@@ -61,6 +64,10 @@ export default {
 
     },
     methods: {
+        removeNote(id) {
+            var noteIdx = this.notes.findIndex(note => note.id === id)
+            this.notes.splice(noteIdx, 1)
+        },
 
         selected(note) {
             this.$router.push(`misterKeeper/edit/${note.id}`);
