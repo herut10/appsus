@@ -21,11 +21,12 @@ export default {
     </section>
    
     <input v-model="editedNote.data.txt" @input="saveNoteTxt(editedNote)" type="text" placeholder="Take a note..."/>
-
+        <div class="flex flex-wrap">
            <component :is="note.type"
                  :data="note.data"
                  v-for="note in notesToShow" :key="note.id" @click.native="selected(note)" >
             </component>
+        </div>
            
     </section>
 </transition>
@@ -41,16 +42,14 @@ export default {
             selectedNote: null,
             notes: [],
             editedNote: misterKeepService.emptyTxtNote(),
-            searchValue : ''
-
-
+            searchValue: ''
         }
     },
     components: {
         noteTxt,
         noteImg,
         noteList
-     
+
 
     },
     methods: {
@@ -77,7 +76,7 @@ export default {
 
 
 
- 
+
 
 
 

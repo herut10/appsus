@@ -36,7 +36,7 @@ export default {
                 <div style="height: 100%;" >
                     <email-sort @dosort="onDoSort"></email-sort>
                     <email-filter @dofilter="onDoFilter"></email-filter>
-                    <email-list @add="onAdd(null)" :emails="emailsForDisplay"></email-list>
+                    <email-list @add="unselect();onAdd(null)" :emails="emailsForDisplay"></email-list>
                 </div>
 
         </main>

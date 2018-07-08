@@ -19,13 +19,13 @@
     padding: 20px;
     background-color: antiquewhite;
     z-index: 3;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 93vh;
 }
 
 .email-compose {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 93%;
     background-color: beige;
@@ -51,7 +51,7 @@ input[type='checkbox'] {
 @media(min-width:700px) {
     .email-compose,
     .email-details {
-        position: absolute;
+        position: fixed;
         width: 40%;
         right: 0;
         bottom: 0%;

@@ -10,14 +10,14 @@ export default {
         <back-btn @back="$emit('back')"></back-btn>
         <form>
             <template v-if="email">
-                <label>subject</label>
+                <h2>subject</h2>
                 <input type="text" v-model="subject" disabled>
             </template>
             <template v-else>
-                <label>subject</label>
+                <h2>subject</h2>
                 <input type="text" v-model="subject" placeholder="your subject..">
             </template>
-            <label>body</label>
+            <h2>body</h2>
             <textarea cols="30" rows="10" v-model="body" placeholder="message body.."></textarea>
             <button @click.prevent="submit">submit</button>
         </form>

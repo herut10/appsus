@@ -11,9 +11,6 @@
     box-sizing: border-box;
 }
 
-body {
-    overflow: hidden;
-}
 
 input,
 button,
