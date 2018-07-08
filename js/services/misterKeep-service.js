@@ -115,7 +115,6 @@ function getTodos() {
 export default {
     query,
     getNoteById,
-    // saveNote,
     saveNote,
     emptyTxtNote,
     emptyImgNote,

@@ -16,7 +16,10 @@ export default {
     template: `
     <section class="misterKeep-list" v-if="editedNote">
    
-    <input v-model="editedNote.data.txt" @input="saveNoteTxt(editedNote)" type="text" placeholder="Take a note..."/>
+    <div class="txt-input">
+    <input class="txt-input" v-model="editedNote.data.txt" @input="saveNoteTxt(editedNote)" type="text" placeholder="Take a note..."/>
+    </div>
+    
             <!-- <note-txt :data="{title: 'yaron'}"></note-txt>
            <component is="note-txt" :data="{title: 'yaron'}"></component> 
          @click.native="setEditNote(note)" -->
@@ -27,18 +30,19 @@ export default {
          </div> -->
          <add-btn class="red" @add="selectImg"></add-btn>
          <!-- <button @click="selectList">Add list</button> -->
+         <div class="list-container ">
            <component 
                  v-for="note in notes" :key="note.id" @click.native="selected(note)"
                  :is="note.type"
                  :data="note.data"
                  @delete="removeNote(note.id)"
-                 :style="styleObj"
+                 :style="{background: note.color}"
                  >
 
                  <!-- <router-link :to="'/book/edit/' + note.id">Edit</router-link> -->
                  <!-- <input type="color" v-model="note.color"  /> -->
                 </component>
-
+                </div>
                 <!-- {{editedNote}} -->
                 <!-- <noteListEdit ></noteListEdit> -->
                 <!-- @change="changeBackgroundColor($event)" -->
@@ -50,9 +54,9 @@ export default {
         var emptyTxtNode = misterKeepService.emptyTxtNote()
         return {
             editedNote: emptyTxtNode,
-            styleObj: {
-                'background-color': emptyTxtNode.color
-            }
+            // styleObj: {
+            //     'background-color': emptyTxtNode.color
+            // }
         }
     },
     components: {

@@ -14,9 +14,9 @@ export default {
 {{editedNote}}
     <h1>EDIT</h1>
 
-    <section class="note-txt" v-if="editedNote"  >
+    <section :style="{background: editedNote.color}" class="note-txt" v-if="editedNote"  >
 
-    <div class="editArea" ref="editArea" v-if="editedNote.type==='note-txt'" >
+    <div  class="editArea" ref="editArea" v-if="editedNote.type==='note-txt'" >
     <input type="text" v-model="editedNote.data.title"></input>
     <input  type="text" v-model="editedNote.data.txt" autofocus></input>
     <input type="color" v-model="editedNote.color"  /> 
@@ -83,7 +83,7 @@ export default {
 
 
     },
-    components:{
+    components: {
         backBtn
     }
 
