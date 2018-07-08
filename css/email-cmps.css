@@ -18,8 +18,9 @@
     overflow-y: auto;
     max-height: 90%;
     padding: 10px;
-    /* background-color: rgba(93, 189, 210, 0.582); */
+    background-color: rgba(93, 189, 210, 0.144);
     margin: 10px;
+    border-bottom: 1px solid;
     
 }
 

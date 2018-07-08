@@ -5,11 +5,11 @@ export default {
     props: ['total', 'progress'],
 
     template: `
-<section class="progress-bar" style="height: 50px">
+<section class="progress-bar" style="height: 30px">
 <ul class="flex justify-center align-center">
     <li v-for="prog in progresion" :style="prog.styleObj"></li>
 </ul>
-    <h1 style="position:relative; width: 0; top: -53px; color: white; left: 48%;font-weight: 500;
+    <h1 style="position:relative; width: 0; top: -45px; color: white; left: 48%;font-weight: 500;
     letter-spacing: 1px;">{{getPercentage}}%</h1>
 </section>
 `,
@@ -21,7 +21,7 @@ export default {
                 styleObj: {
                     'background-color': i < this.progress ? '#FFBB12' : '#454545',
                     width: `${100/this.total}%`,
-                    height: `50px`
+                    height: `30px`
                 }
             })
         }
@@ -49,7 +49,7 @@ export default {
                     styleObj: {
                         'background-color': i < this.progress ? '#FFBB12' : '#454545',
                         width: `${100/this.total}%`,
-                        height: `50px`
+                        height: `30px`
                     }
                 })
             }
@@ -62,7 +62,7 @@ export default {
                     styleObj: {
                         'background-color': i < this.progress ? '#FFBB12' : '#454545',
                         width: `${100/this.total}%`,
-                        height: `50px`
+                        height: `30px`
                     }
                 })
             }
