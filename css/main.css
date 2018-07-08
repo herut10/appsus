@@ -6,9 +6,12 @@
 @import './email-cmps.css';
 @import './general-cmps.css';
 @import './keep-cmps.css';
-
 .gothic {
     font-family: 'Gothic';
+}
+
+a {
+    text-decoration: unset;
 }
 
 .container {
