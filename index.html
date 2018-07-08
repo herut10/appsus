@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
     <title>Apsus</title>
 </head>
 
@@ -14,21 +14,47 @@
 <body>
     <div id="app">
         <header>
-                <div class="hamburger" onclick="changeIcon(this);toggleMenu();">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </div>
-            <!-- <router-link to="/">Home</router-link> |
-            <router-link to="/misterEmail">misterEmail</router-link>|
-            <router-link to="/misterKeeper">misterKeeper</router-link> -->
+            <div class="hamburger" onclick="changeIcon(this);toggleMenu();">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <ul class="mobile-menu">
+                <li>
+                    <router-link to="/">Home</router-link>
+                </li>
+                <li>
+                    <router-link to="/misterEmail">MisterEmail</router-link>
+                </li>
+                <li>
+                    <router-link to="/misterKeeper">MisterKeeper</router-link>
+                </li>
+            </ul>
+
+            <ul class="regular-menu flex space-around align-center">
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/misterEmail">misterEmail</router-link></li>
+                <li><router-link to="/misterKeeper">misterKeeper</router-link></li>
+            </ul>
+
         </header>
         <router-view></router-view>
     </div>
 
+    <script>
+        function changeIcon(eIcon) {
+            eIcon.classList.toggle("change");
+        }
+
+        function toggleMenu() {
+
+            var mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('open')
+        }
+
+    </script>
     <script src="lib/vue.js"></script>
     <script src="lib/vue-router.js"></script>
-
     <script type="module" src="js/main.js"></script>
 </body>
 

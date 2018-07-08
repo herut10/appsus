@@ -13,16 +13,17 @@ export default {
     template: `
     <section class="misterKeeper" >
  
-        <h1>
-            mister keeper
+        <div class="misterKeeperLogo">
+        <img src="/img/mister.png" alt="">
+        mister keeper
+    </div>
     <section class="search" v-if="notes">
    <input v-model="searchValue" type="search" placeholder="Search for a note" @input="notesToShow" /> 
    </section>
    
 
-<misterKeep-list @delete="removeNote" :notes="notesToShow" ></misterKeep-list>
+<misterKeep-list class="clean-list" @delete="removeNote" :notes="notesToShow" ></misterKeep-list>
            
-        </h1>
     </section>
     `,
     created() {

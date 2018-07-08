@@ -3,5 +3,16 @@
 
 
 .misterKeeper{
+
     font-family: lato;
+}
+
+.misterKeeperLogo{
+
+}
+
+.misterKeeperLogo img{
+    height: 100px;
+    width: 100px;
+
 }
