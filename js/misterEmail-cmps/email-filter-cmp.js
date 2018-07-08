@@ -6,7 +6,7 @@ export default {
     <section class="email-filter">
         <form>
             <input placeholder="search subject.." type="text" v-model="filter.txt"  @keyup.enter="submit"/>
-            <lable for="filter">filter:</lable>
+            <label for="filter">filter:</label>
             <select id="filter" @change="submit" v-model="filter.filterBy">
                 <option value="all">all</option>
                 <option value="read" >read</option>

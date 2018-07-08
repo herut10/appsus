@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="email-filter">
         <form>
-        <lable for="sort">sort:</lable>
+        <label for="sort">sort:</label>
             <select id="sort" @change="submit" v-model="sort.sortBy">
                 <option value="none">none</option>
                 <option value="date" >date</option>
