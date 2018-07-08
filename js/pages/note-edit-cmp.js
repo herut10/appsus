@@ -13,8 +13,9 @@ export default {
 
 {{editedNote}}
     <h1>EDIT</h1>
-
-    <section :style="{background: editedNote.color}" class="note-txt" v-if="editedNote"  >
+    <!-- background: editedNote.color -->
+    <!-- :style="{background: editedNote.color}" -->
+    <section :style="{background: editedNote.color}" :class="{noteTxt: isTxt}" v-if="editedNote"  >
 
     <div  class="editArea" ref="editArea" v-if="editedNote.type==='note-txt'" >
     <input type="text" v-model="editedNote.data.title"></input>
@@ -47,6 +48,7 @@ export default {
     data() {
         return {
             editedNote: null,
+            isTxt: true,
             // editedTodo: null,       
         }
 

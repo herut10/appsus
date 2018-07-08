@@ -42,9 +42,10 @@
 } */
 
 .note-txt {
+    font-weight: 600;
     border: 1px solid black;
     width: 200px;
-    height: 200px;
+    height: fit-content;
     padding: 60px 15px 15px 15px;
     color: #000;
     overflow:hidden;
@@ -66,8 +67,10 @@
 }
 
 .note-img {
+    font-weight: 600;
     border: 1px solid black;
     width: 200px;
+    height: fit-content;
     padding: 10px;
     margin:10px 0;
     border-color: transparent;
@@ -91,10 +94,30 @@
 }
 
 
-.note-list{
+
+.noteTxt{
+
+    font-weight: 600;
     border: 1px solid black;
     width: 200px;
-    height: 200px;
+    height: fit-content;
+    padding: 10px;
+    margin:10px 0;
+    border-color: transparent;
+    font-family: eurofurence;
+    font-size: 25px;
+    overflow:hidden;
+    text-align: center;
+    overflow: visible;
+    /* height: 200px; */
+
+}
+
+.note-list{
+    font-weight: 600;
+    border: 1px solid black;
+    width: 200px;
+    height: fit-content;
     padding: 60px 15px 15px 15px;
     color: #000;
     overflow:hidden;
