@@ -4,12 +4,10 @@ import utilService from './util.service.js'
 
 var notes = [
 
-    { type: 'note-txt', id: utilService.makeid(), data: { title: 'tally', txt: 'lalalalala' } },
-    { type: 'note-img', id: utilService.makeid(), data: { src: 'img/1.jpg' } },
-    { type: 'note-list', id: utilService.makeid(), data: { todos: ['go to india', 'to cook carrots'] } },
-    {
-        type: 'note-list', id: utilService.makeid(), data: { todos: ['go to gym', 'to cook kuba'] },
-    },
+    { type: 'note-txt', id: utilService.makeid(), color: '#FFFFFF', data: { title: 'tally', txt: 'lalalalala' } },
+    { type: 'note-img', id: utilService.makeid(), color: '#FFFFFF' , data: { title:'image', src: 'img/1.jpg' } },
+    { type: 'note-list', id: utilService.makeid(), color: '#FFFFFF', data: { todoId: utilService.makeid(),title:['go to india', 'to cook carrots'], isDone: false }},
+    { type: 'note-list', id: utilService.makeid(), color: '#FFFFFF' ,data: { todoId: utilService.makeid(),title:['go to burgas', 'to cook patatos'], isDone: false }},
 
 
 ]
@@ -23,11 +21,9 @@ function query() {
 function getNoteById(id) {
     let note = notes.find(note => note.id === id);
     // return Promise.resolve(note);
-    return  Promise.resolve(note) 
+    return  Promise.resolve(note)
 
-}
-
-
+    }
 
 
 function saveNote(note) {
@@ -63,6 +59,13 @@ function emptyTxtNote() {
             txt: ''
         },
     }
+
+}
+
+
+function getTodos(){
+
+
 
 }
 
