@@ -7,8 +7,10 @@ export default {
     props: ['email', 'idx'],
     template: `
     <section class="email-preview" :style="styleObject">
-        <input type="checkbox" :id="email.id"  @change="$emit('selected',email)"/>
-        <router-link :to="'/misterEmail/'+email.id"> {{email.subject}} {{timeRecieved}}</router-link>
+        <div class="flex align-center">
+            <input type="checkbox" :id="email.id"  @change="$emit('selected',email)"/>
+            <router-link :to="'/misterEmail/'+email.id"> {{email.subject}} {{timeRecieved}}</router-link>
+        </div>
     </section>
     `,
     computed: {

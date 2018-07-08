@@ -1,23 +1,27 @@
 /* general */
 
-
-
-.btn-add{
+.btn-add {
     border: none;
     background-color: transparent;
     cursor: pointer;
 }
 
-.btn-delete{
+.btn-delete {
     border: none;
     background-color: transparent;
     cursor: pointer;
 }
 
-.btn-back{
+.btn-back {
     border: none;
     background-color: transparent;
     cursor: pointer;
 }
 
+.progress-bar ul li:first-child {
+    border-radius: 300px 0 0 300px;
+}
 
+.progress-bar ul li:last-child {
+    border-radius: 0 300px 300px 0;
+}

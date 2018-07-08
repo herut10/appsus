@@ -22,7 +22,7 @@ export default {
    
     <input v-model="editedNote.data.txt" @input="saveNoteTxt(editedNote)" type="text" placeholder="Take a note..."/>
 
-<div class=" flex flex-wrap clean-list space-between">
+<div class="notes-container flex flex-wrap clean-list space-between">
            <component :is="note.type"
                  :data="note.data"
                  v-for="note in notesToShow" :key="note.id" @click.native="selected(note)"

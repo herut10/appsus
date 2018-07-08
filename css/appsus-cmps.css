@@ -15,8 +15,14 @@
 .appsus {
     background-color: aquamarine;
     top: 45px;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: calc(100% - 45px);
     justify-content: flex-start;
+}
+
+@media(min-width:700px) {
+    .appsus {
+        top: 70px;
+    }
 }

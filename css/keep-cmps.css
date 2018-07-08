@@ -1,38 +1,31 @@
 /* start */
 
-
-
-.misterKeeper{
+.misterKeeper {
     margin-left: 20px;
     font-family: lato;
     width: 90%;
 }
 
-.misterKeeperLogo{
+.misterKeeperLogo {
     width: 100%;
 }
 
-.misterKeeperLogo img{
+.misterKeeperLogo img {
     height: 80px;
-   width: 80px;
-
+    width: 80px;
 }
 
-.misterKeeperLogo li{
-color: #FFBB12;
-font-family: lato;
-text-transform: uppercase;
-letter-spacing: -1px;
-align-self: center;
-font-weight: 600;
-font-size: 20px;
-
+.misterKeeperLogo li {
+    color: #FFBB12;
+    font-family: lato;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    align-self: center;
+    font-weight: 600;
+    font-size: 20px;
 }
 
-
-
-.search{
-
+.search {
     margin-top: 20px;
     margin-bottom: 20px;
     
@@ -48,10 +41,9 @@ font-size: 20px;
     margin-top: 20px;
 } */
 
-
-.note-txt{
+.note-txt {
     border: 1px solid black;
-    width:200px ;
+    width: 200px;
     height: 200px;
     padding: 60px 15px 15px 15px;
     color: #000;
@@ -73,7 +65,7 @@ font-size: 20px;
 
 }
 
-.note-img{
+.note-img {
     border: 1px solid black;
     width: 200px;
     padding: 10px;
@@ -89,10 +81,8 @@ font-size: 20px;
     box-shadow: rgb(119, 119, 119) 0px 5px 5px;
 }
 
-.note-img img{
-
+.note-img img {
     width: 100%;
-  
 }
 
 .notes-container{
@@ -103,7 +93,7 @@ font-size: 20px;
 
 .note-list{
     border: 1px solid black;
-    width:200px ;
+    width: 200px;
     height: 200px;
     padding: 60px 15px 15px 15px;
     color: #000;

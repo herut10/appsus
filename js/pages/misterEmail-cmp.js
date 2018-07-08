@@ -21,24 +21,23 @@ export default {
 
         <main style="height: 76vh;">
 
-                        <transition
-        name="custom-classes-transition"
-        enter-active-class="animated bounceInLeft"
-        leave-active-class="animated bounceOutRight">
+            <transition
+                name="custom-classes-transition"
+                enter-active-class="animated bounceInUp"
+                leave-active-class="animated bounceOutDown">
+
+
+                <email-details v-if="selectedEmail" @back="unselect" @add="onAdd(selectedEmail); unselect()"  @delete="removeEmail(); unselect()" :email="selectedEmail"></email-details>
+                
+                <email-compose @back="composing=false"  @add="addNewMail" v-if="composing" :email="emailReply"></email-compose>
             
-            <email-compose @add="addNewMail" v-if="composing" :email="emailReply"></email-compose>
-            
-            <div class="flex " v-else>
-                 <div v-if="selectedEmail">
-                    <email-details @back="unselect" @add="onAdd(selectedEmail)"  @delete="removeEmail" :email="selectedEmail"></email-details>
-                </div>
-                <div v-else >
+            </transition>
+                 
+                <div style="height: 100%;" >
                     <email-sort @dosort="onDoSort"></email-sort>
                     <email-filter @dofilter="onDoFilter"></email-filter>
-                    <email-list @add="onAdd(null)" :emails="emailsForDisplay"></email-list>
+                    <email-list @add="unselect();onAdd(null)" :emails="emailsForDisplay"></email-list>
                 </div>
-            </div>
-</transition>
 
         </main>
         <footer>
@@ -132,22 +131,19 @@ export default {
 
                     this.$router.push(this.selectedEmail.id)
                 }
-            } else {
-                this.selectedEmail = this.emails[0]
-                this.$router.push('misterEmail/' + this.selectedEmail.id)
+                this.selectedEmail.isRead = true
             }
-            this.selectedEmail.isRead = true
-
-
-
         }
     },
-    beforeRouteUpdate(to, from, next) {
-        this.updateUrl(to.params.id)
-        next()
-    },
     watch: {
+        '$route.params.id': {
+            handler: function (id) { // watch it
+                this.updateUrl(id)
+            },
+            deep: true,
+        },
         emails: {
+
             handler: function (newemails) { // watch it
                 emailService.saveEmails(newemails)
             },

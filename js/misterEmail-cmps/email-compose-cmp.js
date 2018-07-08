@@ -1,4 +1,5 @@
-import utilService from "../services/util.service.js";
+import utilService from '../services/util.service.js';
+import backBtn from '../general-cmps/back-button-cmp.js'
 
 'use strict'
 
@@ -6,16 +7,17 @@ export default {
     props: ['email'],
     template: `
     <section  class="email-compose">
+        <back-btn @back="$emit('back')"></back-btn>
         <form>
             <template v-if="email">
-                <label>subject</label>
+                <h2>subject</h2>
                 <input type="text" v-model="subject" disabled>
             </template>
             <template v-else>
-                <label>subject</label>
+                <h2>subject</h2>
                 <input type="text" v-model="subject" placeholder="your subject..">
             </template>
-            <label>body</label>
+            <h2>body</h2>
             <textarea cols="30" rows="10" v-model="body" placeholder="message body.."></textarea>
             <button @click.prevent="submit">submit</button>
         </form>
@@ -38,5 +40,8 @@ export default {
             }
             this.$emit('add', mailObj)
         }
+    },
+    components: {
+        backBtn
     }
 }

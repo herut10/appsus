@@ -13,9 +13,9 @@ export default {
             <btn-delete  @delete="removeEmail" ></btn-delete>
             <button @click="$emit('add')">reply</button>
         </div>
-
-        <h1>{{timeRecieved}} {{email.subject}}</h1>
-        <pre>{{email.body}}</pre>
+        <h2>subject: {{email.subject}}</h2>
+        <h2>time: {{timeRecieved}} </h2>
+        <h1>{{email.body}}</h1>
     </section>
     `,
     components: {
@@ -29,7 +29,8 @@ export default {
     },
     computed: {
         timeRecieved() {
-            return emailService.timeRecieved(this.email.sentAt)
+            var dateString = new Date(this.email.sentAt).toTimeString()
+            return dateString.slice(0, dateString.length - 2)
         }
     }
 }

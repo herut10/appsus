@@ -1,2 +1,61 @@
 /* start */
 
+.email-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.email-list {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 90%;
+    padding: 10px;
+}
+
+.email-details {
+    padding: 20px;
+    background-color: antiquewhite;
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    height: 93vh;
+}
+
+.email-compose {
+    position: fixed;
+    width: 100%;
+    height: 93%;
+    background-color: beige;
+}
+
+input[type='checkbox'] {
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.email-preview {
+    display: block;
+    
+}
+
+.email-compose form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+}
+
+@media(min-width:700px) {
+    .email-compose,
+    .email-details {
+        position: fixed;
+        width: 40%;
+        right: 0;
+        bottom: 0%;
+        height: 67%;
+        background-color: beige;
+    }
+}
