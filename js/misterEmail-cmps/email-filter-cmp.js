@@ -6,30 +6,12 @@ export default {
     <section class="email-filter">
         <form>
             <input placeholder="search subject.." type="text" v-model="filter.txt"  @keyup.enter="submit"/>
-            <input 
-                id="all"
-                type="radio"
-                value="all"
-                v-model="filter.filterBy"
-                @change="submit"
-                checked/>
-            <label for="all" >all</label>
-            <input 
-                id="read"
-                type="radio" 
-                value="read" 
-                v-model="filter.filterBy"
-                @change="submit"
-             />
-            <label for="read">read</label>
-            <input 
-                id="unread"
-                type="radio" 
-                value="unread"
-                v-model="filter.filterBy"
-                @change="submit"
-            />
-            <label for="unread">unread</label>
+            <label for="filter">filter:</label>
+            <select id="filter" @change="submit" v-model="filter.filterBy">
+                <option value="all">all</option>
+                <option value="read" >read</option>
+                <option value="unread" >unread</option>
+            </select>
         </form>
     </section>
     `,
@@ -43,6 +25,7 @@ export default {
     },
     methods: {
         submit() {
+            debugger
             var filterCopy = JSON.parse(JSON.stringify(this.filter))
             this.$emit('dofilter', filterCopy)
         }

@@ -5,38 +5,20 @@ export default {
     template: `
     <section class="email-filter">
         <form>
-            <input 
-                id="none"
-                type="radio"
-                value="none"
-                v-model="sort.sortBy"
-                @change="submit"
-                checked/>
-            <label for="none" >none</label>
-            <input 
-                id="date"
-                type="radio" 
-                value="date" 
-                v-model="sort.sortBy"
-                @change="submit"
-             />
-            <label for="date">date</label>
-            <input 
-                id="subject"
-                type="radio" 
-                value="subject"
-                v-model="sort.sortBy"
-                @change="submit"
-            />
-            <label for="subject">subject</label>
-            <button @click="sort.reversed=!sort.reversed; submit()"> reverse</button>
+        <label for="sort">sort:</label>
+            <select id="sort" @change="submit" v-model="sort.sortBy">
+                <option value="none">none</option>
+                <option value="date" >date</option>
+                <option value="subject" >subject</option>
+            </select>
+            <button @click="sort.reversed=!sort.reversed; submit()"> <i class="fa" v-bind:class="{ 'fa-sort-amount-up': sort.reversed, ' fa-sort-amount-down': !sort.reversed }"></i></button>
         </form>
     </section>
     `,
     data() {
         return {
             sort: {
-                reversed: true,
+                reversed: false,
                 sortBy: 'none'
             }
         }
