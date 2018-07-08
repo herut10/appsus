@@ -12,9 +12,6 @@ export default {
     data() {
         return {
             styleObj: {
-                position: 'absolute',
-                bottom: '0',
-                width: '98%',
             }
         }
     },
