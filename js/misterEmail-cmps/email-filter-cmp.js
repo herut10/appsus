@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="email-filter">
         <form>
-            <input type="text" v-model="filter.txt"  @keyup.enter="submit"/>
+            <input placeholder="search subject.." type="text" v-model="filter.txt"  @keyup.enter="submit"/>
             <input 
                 id="all"
                 type="radio"

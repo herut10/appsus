@@ -14,8 +14,8 @@ export default {
             <button @click="$emit('add')">reply</button>
         </div>
 
-        <h1>{{timeRecieved}} {{email.subject}}</h1>
-        <pre>{{email.body}}</pre>
+        <h2>{{timeRecieved}} {{email.subject}}</h2>
+        <h1>{{email.body}}</h1>
     </section>
     `,
     components: {

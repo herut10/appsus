@@ -1,4 +1,5 @@
-import utilService from "../services/util.service.js";
+import utilService from '../services/util.service.js';
+import backBtn from '../general-cmps/back-button-cmp.js'
 
 'use strict'
 
@@ -6,6 +7,7 @@ export default {
     props: ['email'],
     template: `
     <section  class="email-compose">
+        <back-btn @back="$emit('back')"></back-btn>
         <form>
             <template v-if="email">
                 <label>subject</label>
@@ -38,5 +40,8 @@ export default {
             }
             this.$emit('add', mailObj)
         }
+    },
+    components: {
+        backBtn
     }
 }

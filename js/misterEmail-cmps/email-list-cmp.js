@@ -7,15 +7,17 @@ export default {
     props: ['emails'],
     template: `
     <section  class="email-list">
-    <button-add @add="$emit('add')"></button-add>
-    <button @click="mark(true)">mark read</button>
-    <button @click="mark(false)">mark unread</button>
-    <email-preview  v-for="(email, idx) in emails"
-                    :email="email" 
-                    @selected="onselected"
-                    :key="email.id"
-                    >
-    </email-preview>
+        <div class="flex justify-center">
+            <button-add @add="$emit('add')"></button-add>
+            <button @click="mark(true)">mark read</button>
+            <button @click="mark(false)">mark unread</button>
+        </div>
+            <email-preview  v-for="(email, idx) in emails"
+                            :email="email" 
+                            @selected="onselected"
+                            :key="email.id"
+                            >
+            </email-preview>
     </section>
     `,
     data() {
