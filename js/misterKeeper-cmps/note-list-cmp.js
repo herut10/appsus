@@ -18,7 +18,7 @@ export default {
   {{todo.txt}}
   <hr>
   </li>
-  <btn-delete @delete="removeNote"></btn-delete>
+  <btn-delete @delete="$emit('delete',data.id)"></btn-delete>
 </ul>
 <!-- <input v-model="newTodo" 
 placeholder="What do you need to do?" >
@@ -57,7 +57,7 @@ placeholder="What do you need to do?" >
     console.log('tatata')
 
   },
-  components:{
+  components: {
     btnDelete
   },
 
