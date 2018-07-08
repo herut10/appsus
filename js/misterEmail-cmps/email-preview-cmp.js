@@ -8,7 +8,7 @@ export default {
     template: `
     <section class="email-preview" :style="styleObject">
         <div class="flex align-center">
-            <input type="checkbox" :id="email.id"  @change="$emit('selected',email)"/>
+            <button @click="$emit('selected',email)"><i class="fa" :class="{'fa-envelope':!email.isRead,'fa-envelope-open':email.isRead}"></i> </button>
             <router-link :to="'/misterEmail/'+email.id"> {{email.subject}} {{timeRecieved}}</router-link>
         </div>
     </section>
