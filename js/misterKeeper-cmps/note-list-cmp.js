@@ -1,7 +1,7 @@
 'use strict'
 import misterKeepService from '../services/misterKeep-service.js'
 // import  './note-list-edit-cmp.js'
-
+import btnDelete from '../general-cmps/btn-delete-cmp.js'
 export default {
   props: ['data'],
 
@@ -18,6 +18,7 @@ export default {
   {{todo.txt}}
   <hr>
   </li>
+  <btn-delete @delete="removeNote"></btn-delete>
 </ul>
 <!-- <input v-model="newTodo" 
 placeholder="What do you need to do?" >
@@ -55,6 +56,9 @@ placeholder="What do you need to do?" >
   created() {
     console.log('tatata')
 
+  },
+  components:{
+    btnDelete
   },
 
   methods: {

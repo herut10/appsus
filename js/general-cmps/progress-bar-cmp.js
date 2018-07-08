@@ -9,7 +9,8 @@ export default {
 <ul class="flex justify-center align-center">
     <li v-for="prog in progresion" :style="prog.styleObj"></li>
 </ul>
-    <h1 style="position:relative; width: 0; top: -53px; color: white; left: 48%;">{{getPercentage}}%</h1>
+    <h1 style="position:relative; width: 0; top: -53px; color: white; left: 48%;font-weight: 500;
+    letter-spacing: 1px;">{{getPercentage}}%</h1>
 </section>
 `,
     data() {
@@ -18,7 +19,7 @@ export default {
         for (let i = 0; i < this.total; i++) {
             progresion.push({
                 styleObj: {
-                    'background-color': i < this.progress ? 'blue' : 'black',
+                    'background-color': i < this.progress ? '#FFBB12' : '#454545',
                     width: `${100/this.total}%`,
                     height: `50px`
                 }
@@ -46,7 +47,7 @@ export default {
             for (let i = 0; i < this.total; i++) {
                 progresion.push({
                     styleObj: {
-                        'background-color': i < this.progress ? 'blue' : 'black',
+                        'background-color': i < this.progress ? '#FFBB12' : '#454545',
                         width: `${100/this.total}%`,
                         height: `50px`
                     }
@@ -59,7 +60,7 @@ export default {
             for (let i = 0; i < this.total; i++) {
                 progresion.push({
                     styleObj: {
-                        'background-color': i < this.progress ? 'blue' : 'black',
+                        'background-color': i < this.progress ? '#FFBB12' : '#454545',
                         width: `${100/this.total}%`,
                         height: `50px`
                     }

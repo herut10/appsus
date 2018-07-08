@@ -37,7 +37,16 @@
                     <router-link to="/">Home</router-link>
                 </li>
                 <li>
-                    <router-link to="/misterEmail">misterEmail</router-link>
+                    <!-- <router-link to="/misterEmail">misterEmail</router-link> -->
+                    <router-link to="/misterEmail">
+                        <div class="misterKeeperLogo-container">
+                            <ul class="misterEmailLogo flex justify-center">
+                                <li>
+                                    <img src="/img/email.png" >
+                                </li>
+                                <li>mister email</li>
+                            </ul>
+                        </div>
                 </li>
                 <li>
                     <router-link to="/misterKeeper">
@@ -54,6 +63,14 @@
             </ul>
 
         </header>
+        <!-- <div class="misterKeeperLogo-body">
+                <ul class="misterKeeperLogo flex justify-center">
+                    <li>
+                        <img src="/img/mister.png" alt="">
+                    </li>
+                    <li>mister keeper</li>
+                </ul>
+            </div> -->
         <router-view></router-view>
     </div>
 
