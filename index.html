@@ -20,27 +20,37 @@
                 <div class="bar3"></div>
             </div>
             <ul class="mobile-menu">
-                <li>
+                <li onclick="toggleMenu()">
                     <router-link to="/">Home</router-link>
                 </li>
-                <li>
+                <li onclick="toggleMenu()">
                     <router-link to="/misterEmail">MisterEmail</router-link>
                 </li>
-                <li>
+                <li onclick="toggleMenu()">
                     <router-link to="/misterKeeper">
                         MisterKeeper</router-link>
                 </li>
             </ul>
 
             <ul class="regular-menu flex space-around align-center">
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/misterEmail">misterEmail</router-link></li>
-                <li><router-link to="/misterKeeper">    <div class="misterKeeperLogo-container">
-                        <ul class="misterKeeperLogo flex justify-center">
-                        <li><img src="/img/mister.png" alt=""></li>
-                        <li>mister keeper</li>
-                        </ul>
-                    </div></router-link></li>
+                <li>
+                    <router-link to="/">Home</router-link>
+                </li>
+                <li>
+                    <router-link to="/misterEmail">misterEmail</router-link>
+                </li>
+                <li>
+                    <router-link to="/misterKeeper">
+                        <div class="misterKeeperLogo-container">
+                            <ul class="misterKeeperLogo flex justify-center">
+                                <li>
+                                    <img src="/img/mister.png" alt="">
+                                </li>
+                                <li>mister keeper</li>
+                            </ul>
+                        </div>
+                    </router-link>
+                </li>
             </ul>
 
         </header>
@@ -57,7 +67,6 @@
             var mobileMenu = document.querySelector('.mobile-menu');
             mobileMenu.classList.toggle('open')
         }
-
     </script>
     <script src="lib/vue.js"></script>
     <script src="lib/vue-router.js"></script>

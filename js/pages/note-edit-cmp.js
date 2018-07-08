@@ -8,6 +8,10 @@ export default {
     name: 'note-list-edit',
 
     template: `
+                <transition
+                name="custom-classes-transition"
+                enter-active-class="animated bounceInLeft"
+                leave-active-class="animated bounceOutRight">
     
        <section class="note-list-edit"  >
 
@@ -43,6 +47,7 @@ export default {
     </section>
 
         </section>
+</transition>
     
     `,
     data() {
@@ -56,7 +61,9 @@ export default {
     created() {
         // debugger;
         console.log(this.$route.params.noteId)
-        const { noteId } = this.$route.params;
+        const {
+            noteId
+        } = this.$route.params;
         if (noteId) {
             misterKeepService.getNoteById(noteId)
                 .then(note => {

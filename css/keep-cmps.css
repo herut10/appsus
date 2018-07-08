@@ -3,7 +3,9 @@
 .misterKeeper {
     margin-left: 20px;
     font-family: lato;
-    width: 90%;
+    position: fixed;
+    top: 15%;
+    width: 100%;
 }
 
 .misterKeeperLogo {
@@ -28,9 +30,7 @@
 .search {
     margin-top: 20px;
     margin-bottom: 20px;
-    
-}   
-
+}
 
 /* .txt-section{
     width: 100%;
@@ -48,9 +48,9 @@
     height: fit-content;
     padding: 60px 15px 15px 15px;
     color: #000;
-    overflow:hidden;
+    overflow: hidden;
     text-align: center;
-    margin:10px 0;
+    margin: 10px 0;
     border-color: transparent;
     font-family: eurofurence;
     font-size: 25px;
@@ -62,9 +62,6 @@
 
 
     box-shadow: rgb(119, 119, 119) 0px 5px 5px;
-   
-   
-
 }
 
 .note-img {
@@ -73,11 +70,11 @@
     width: 200px;
     height: fit-content;
     padding: 10px;
-    margin:10px 0;
+    margin: 10px 0;
     border-color: transparent;
     font-family: eurofurence;
     font-size: 25px;
-    overflow:hidden;
+    overflow: hidden;
     text-align: center;
     -webkit-transform: rotate(4deg);
     overflow: visible;
@@ -90,7 +87,7 @@
     width: 100%;
 }
 
-.notes-container{
+.notes-container {
     width: 95%;
     margin-top: 20px;
 }
@@ -126,9 +123,9 @@
     height: fit-content;
     padding: 60px 15px 15px 15px;
     color: #000;
-    overflow:hidden;
+    overflow: hidden;
     text-align: center;
-    margin:10px 0;
+    margin: 10px 0;
     border-color: transparent;
     font-family: eurofurence;
     font-size: 25px;
@@ -160,6 +157,12 @@
     margin: 25px auto;
     padding: 60px 15px 15px 15px; */
 
+.tape {
+    height: 20px;
+    width: 60px;
+    position: absolute;
+    top: -8px;
+}
 
     .tape{
         height: 20px;
