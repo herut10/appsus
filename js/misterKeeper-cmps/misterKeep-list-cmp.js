@@ -4,7 +4,7 @@
 import noteTxt from '../misterKeeper-cmps/note-txt-cmp.js'
 import noteImg from '../misterKeeper-cmps/note-img-cmp.js'
 import noteList from '../misterKeeper-cmps/note-list-cmp.js'
-import addBtn from '../general-cmps/add-button-cmp.js'
+
 
 import misterKeepService from '../services/misterKeep-service.js'
 // import noteListEdit from '../misterKeeper-cmps/note-list-edit-cmp.js'
@@ -49,7 +49,6 @@ export default {
            
         </h1>
     </section>
-    <add-btn  @add="selectImg"></add-btn>
     `,
     data() {
         var emptyTxtNode = misterKeepService.emptyTxtNote()
@@ -81,14 +80,6 @@ export default {
                 .then(note => {
                     this.selected(note);
                 })
-        },
-        selectImg() {
-            let img = misterKeepService.emptyImgNote();
-            misterKeepService.saveNote(img)
-                .then(img => {
-                    this.selected(img);
-                })
-
         },
         removeNote(noteId) {
             this.$emit('delete', noteId)

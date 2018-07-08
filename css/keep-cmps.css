@@ -4,8 +4,10 @@
     margin-left: 20px;
     font-family: lato;
     position: fixed;
-    top: 15%;
     width: 100%;
+    overflow: auto;
+    top: 70px;
+    max-height: 90%;
 }
 
 .misterKeeperLogo {
