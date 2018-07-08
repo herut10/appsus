@@ -18,10 +18,18 @@
     overflow-y: auto;
     max-height: 90%;
     padding: 10px;
-    background-color: rgba(93, 189, 210, 0.144);
+    /* background-color: rgba(93, 189, 210, 0.144); */
     margin: 10px;
-    border-bottom: 1px solid;
     
+    
+}
+
+.email-preview button{
+    border-color: transparent;
+    background-color: transparent;
+    color: #FFBB12;
+    height: 30px;
+    width: 30px;
 }
 
 .email-details {
@@ -47,7 +55,28 @@ input[type='checkbox'] {
 
 .email-preview {
     display: block;
+    border-bottom: 1px solid #454545;
+    padding: 5px;
     
+}
+
+.email-preview:hover{
+    background-color:rgba(93, 189, 210, 0.199);
+    transition: all .3s ease;
+}
+
+
+.progress-bar{
+    margin: 10px
+}
+
+
+
+.email-preview a{
+    margin-left: 15px;
+    color: #454545;
+    text-transform: capitalize;
+
 }
 
 .email-compose form {
@@ -78,8 +107,55 @@ input[type='checkbox'] {
 } 
 
 
+.fa-reply{
+border: transparent;
+background-color: transparent;
+color: #FFBB12;
+}
+
+.email-details{
+    color: #454545;
+    text-transform: capitalize;
+}
+
+.btns-email button{
+    color: #FFBB12;
+}
 
 
+.email-filter{
+    margin-top: 20px;
+    margin-left: 15px;
+    font-family: lato;
+    text-transform: capitalize;
+}
+
+.btn-add{
+    justify-content: left;
+}
+
+
+.sort-filter input{
+
+    height: 2em;
+    border: 1px solid #454545;
+}
+.sort-filter select{
+
+    height: 2em;
+    border: 1px solid #454545;
+}
+
+.sort-filter input:hover{
+
+    height: 2em;
+    border: 1px solid #5dbdd2;
+}
+.sort-filter select:hover{
+
+    height: 2em;
+    border: 1px solid #5dbdd2;
+}
 
 
 
@@ -93,4 +169,11 @@ input[type='checkbox'] {
         height: 67%;
         background-color: beige;
     }
+    .sort-filter{
+        flex-direction: row;
+
+
+    }
+
 }
+

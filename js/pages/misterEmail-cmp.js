@@ -34,8 +34,10 @@ export default {
             </transition>
                  
                 <div style="height: 100%;" >
+                    <div class="sort-filter flex column">
                     <email-sort @dosort="onDoSort"></email-sort>
                     <email-filter @dofilter="onDoFilter"></email-filter>
+                    </div>
                     <email-list @add="unselect();onAdd(null)" :emails="emailsForDisplay"></email-list>
                 </div>
 

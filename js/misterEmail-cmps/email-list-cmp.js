@@ -7,7 +7,7 @@ export default {
     props: ['emails'],
     template: `
     <section  class="email-list">
-        <div class="flex justify-center">
+        <div class="flex justify-left">
             <button-add @add="$emit('add')"></button-add>
         </div>
             <email-preview  v-for="(email, idx) in emails"

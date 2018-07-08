@@ -4,6 +4,7 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+    color: #454545;
 }
 
 .btn-delete {
@@ -24,4 +25,20 @@
 
 .progress-bar ul li:last-child {
     border-radius: 0 300px 300px 0;
+}
+
+.btn-add:hover{
+    color: #5DBCD2;
+}
+
+
+.sort-filter{
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.email-filter button{
+background-color: transparent;
+border: transparent;
+
 }

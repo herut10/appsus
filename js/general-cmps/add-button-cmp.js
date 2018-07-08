@@ -4,7 +4,7 @@ export default {
     name: 'btn-add',
 
     template: `
-<button class="btn-add far fa-plus-square fa-1x" @click="emitAdd"></button>
+<button class="btn-add far fa-plus-square fa-2x" @click="emitAdd"></button>
 `,
     methods: {
         emitAdd() {

@@ -8,7 +8,7 @@ export default {
     template: `
     <section class="email-preview" :style="styleObject">
         <div class="flex align-center">
-            <button @click="$emit('selected',email)"><i class="fa" :class="{'fa-envelope':!email.isRead,'fa-envelope-open':email.isRead}"></i> </button>
+            <button @click="$emit('selected',email)"><i class="fa" :class="{'fa-envelope fa-2x':!email.isRead,'fa-envelope-open fa-2x':email.isRead}"></i> </button>
             <router-link :to="'/misterEmail/'+email.id"> {{email.subject}} {{timeRecieved}}</router-link>
         </div>
     </section>
@@ -28,7 +28,7 @@ export default {
     },
     watch: {
         emailRead() {
-            this.styleObject['font-weight'] = this.email.isRead ? 400 : 900
+            this.styleObject['font-weight'] = this.email.isRead ? 200 : 900
         }
     }
 }

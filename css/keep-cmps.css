@@ -4,10 +4,8 @@
     margin-left: 20px;
     font-family: lato;
     position: fixed;
+    top: 15%;
     width: 100%;
-    overflow: auto;
-    top: 70px;
-    max-height: 90%;
 }
 
 .misterKeeperLogo {
@@ -32,6 +30,37 @@
 .search {
     margin-top: 20px;
     margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.search input{
+    height: 2em;
+    border: 1px solid #454545;
+}
+
+.search input:hover{
+    border: 1px solid #5dbdd2;
+}
+
+.note-list .btn-delete{
+    position: absolute;
+    bottom:  0 ;
+    left: 0;
+    padding: 5px;
+}
+
+.note-img .btn-delete{
+    position: absolute;
+    bottom:  0 ;
+    left: 0;
+    padding: 5px;
+}
+
+.note-txt .btn-delete{
+    position: absolute;
+    bottom:  0 ;
+    left: 0;
+    padding: 5px;
 }
 
 /* .txt-section{
@@ -183,7 +212,7 @@
     .note-list-edit h1{
 
         text-transform: uppercase;
-        color: rgba(93, 189, 210);
+        color: #5dbdd2;
     font-family: lato;
     text-transform: uppercase;
     letter-spacing: -1px;

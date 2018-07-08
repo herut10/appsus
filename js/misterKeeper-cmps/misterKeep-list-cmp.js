@@ -63,7 +63,7 @@ export default {
         noteTxt,
         noteImg,
         noteList,
-        addBtn
+        // addBtn
 
 
     },

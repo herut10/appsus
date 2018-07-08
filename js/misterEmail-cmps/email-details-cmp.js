@@ -8,12 +8,13 @@ export default {
     props: ['email'],
     template: `
     <section  v-if="email" class="email-details flex column">
-        <div class="flex justify-between" >
+        <div class="btns-email flex justify-between" >
             <btn-back @back="$emit('back')"></btn-back>
             <btn-delete  @delete="removeEmail" ></btn-delete>
-            <button @click="$emit('add')">reply</button>
+            <button class="fas fa-reply" @click="$emit('add')"></button>
         </div>
         <h2>subject: {{email.subject}}</h2>
+        <hr>
         <h2>time: {{timeRecieved}} </h2>
         <h1>{{email.body}}</h1>
     </section>
