@@ -5,6 +5,7 @@
 .misterKeeper{
     margin-left: 20px;
     font-family: lato;
+    width: 90%;
 }
 
 .misterKeeperLogo{
@@ -36,9 +37,7 @@ font-size: 20px;
     margin-bottom: 20px;
     
 }   
- input{
-    width: 70%;
-} 
+
 
 /* .txt-section{
     width: 100%;
@@ -54,12 +53,40 @@ font-size: 20px;
     border: 1px solid black;
     width:200px ;
     height: 200px;
+    padding: 60px 15px 15px 15px;
+    color: #000;
+    overflow:hidden;
+    text-align: center;
+    margin:10px 0;
+    border-color: transparent;
+    font-family: eurofurence;
+    font-size: 25px;
+    -webkit-transform: rotate(4deg);
+    position: relative;
+    overflow: visible;
+
+
+
+    box-shadow: rgb(119, 119, 119) 0px 5px 5px;
+   
+   
+
 }
 
 .note-img{
     border: 1px solid black;
     width: 200px;
+    padding: 10px;
+    margin:10px 0;
+    border-color: transparent;
+    font-family: eurofurence;
+    font-size: 25px;
+    overflow:hidden;
+    text-align: center;
+    -webkit-transform: rotate(4deg);
+    overflow: visible;
     /* height: 200px; */
+    box-shadow: rgb(119, 119, 119) 0px 5px 5px;
 }
 
 .note-img img{
@@ -68,9 +95,48 @@ font-size: 20px;
   
 }
 
+.notes-container{
+    width: 95%;
+    margin-top: 20px;
+}
+
+
 .note-list{
     border: 1px solid black;
     width:200px ;
     height: 200px;
+    padding: 60px 15px 15px 15px;
+    color: #000;
+    overflow:hidden;
+    text-align: center;
+    margin:10px 0;
+    border-color: transparent;
+    font-family: eurofurence;
+    font-size: 25px;
+    -webkit-transform: rotate(4deg);
+    overflow: visible;
+    box-shadow: rgb(119, 119, 119) 0px 5px 5px;
 }
+/* 
+#notes li {
+    position: relative;
+    width: 300px;
+    min-height: 100px;
+    margin: 25px auto;
+    padding: 60px 15px 15px 15px; */
 
+
+    .tape{
+        height: 20px;
+        width: 60px;
+        position:absolute;
+        top: -8px;
+        
+    }
+
+    .note-img img.tape{
+        height: 20px;
+        width: 60px;
+        position:absolute;
+        top: -8px;
+    }

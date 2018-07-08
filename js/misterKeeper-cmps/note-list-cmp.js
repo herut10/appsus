@@ -9,8 +9,8 @@ export default {
 
   template: `
 
-<section class="note-list">
-
+<section class="note-list clean-list">
+<img class="tape" src="/img/tape.png">
   {{data.title}}
   <!-- {{data.todos}} -->
   <ul>

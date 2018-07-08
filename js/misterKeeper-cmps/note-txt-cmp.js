@@ -7,6 +7,7 @@ export default {
 
     template: `
 <section class="note-txt"  >
+<img class="tape" src="/img/tape.png">
 <li>{{data.title}}</li>
 <li>{{data.txt}}</li>
 <btn-delete @delete="removeNote"></btn-delete>

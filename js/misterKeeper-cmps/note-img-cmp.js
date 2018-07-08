@@ -8,7 +8,8 @@ export default {
     name: 'note-img',
 
     template: `
-<section class="note-img">
+<section class="note-img clean-list" >
+<img class="tape" src="/img/tape.png">
 <div>{{data.id}}
 <img :src="data.src" >
 <btn-delete @delete="removeNote"></btn-delete>

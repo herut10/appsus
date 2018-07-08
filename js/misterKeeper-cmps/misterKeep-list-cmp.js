@@ -28,9 +28,9 @@ export default {
                     <note-list :data="notes[1].data">
                     </note-list>
          </div> -->
-         <add-btn class="red" @add="selectImg"></add-btn>
+         
          <!-- <button @click="selectList">Add list</button> -->
-         <div class="list-container ">
+         <div class="list-container  ">
            <component 
                  v-for="note in notes" :key="note.id" @click.native="selected(note)"
                  :is="note.type"
@@ -49,6 +49,7 @@ export default {
            
         </h1>
     </section>
+    <add-btn  @add="selectImg"></add-btn>
     `,
     data() {
         var emptyTxtNode = misterKeepService.emptyTxtNote()
