@@ -2,10 +2,15 @@
 @import './helpers.css';
 @import './toggle-btn.css';
 @import './user-msg.css';
+@import './appsus-cmps.css';
+@import './email-cmps.css';
+@import './general-cmps.css';
+@import './keep-cmps.css';
 
 .gothic {
     font-family: 'Gothic';
 }
+
 .container {
     max-width: 1050px;
     /* margin: 0 auto; */
@@ -14,14 +19,13 @@
     padding-left: 10px;
 }
 
-header{
+header {
     background-color: lightblue;
     background-image: url(../img/cloud.png);
     color: #fff;
     text-align: center;
- }
+}
 
- .router-link-active {
-     color: orange;
- }
-
+.router-link-active {
+    color: orange;
+}
