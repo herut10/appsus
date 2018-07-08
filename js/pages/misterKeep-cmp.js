@@ -20,15 +20,20 @@ export default {
     <input v-model="searchValue" type="search" placeholder="Search for a note" /> 
     </section>
    
-    <input v-model="editedNote.data.txt" @input="saveNoteTxt(editedNote)" type="text" placeholder="Take a note..."/>
+    <input v-model.lazy="editedNote.data.txt" @change="saveNoteTxt(editedNote)" type="text" placeholder="Take a note..."/>
 
-<div class="notes-container flex flex-wrap clean-list space-between">
-           <component :is="note.type"
-                 :data="note.data"
-                 v-for="note in notesToShow" :key="note.id" @click.native="selected(note)"
-                 :style="{background: note.color}" >
-            </component>
-            </div>
+            
+            <transition-group class="notes-container flex flex-wrap clean-list space-between"
+            name="custom-classes-transition"
+            enter-active-class="animated bounceInLeft"
+            leave-active-class="animated bounceOutRight">
+                    <component :is="note.type"
+                            :data="note.data"
+                            v-for="note in notesToShow" :key="note.id" @click.native="selected(note)"
+                            :style="{background: note.color}" >
+                        </component>
+            </transition-group>
+            
     </section>
 </transition>
     `,
